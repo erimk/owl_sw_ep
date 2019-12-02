@@ -1,0 +1,724 @@
+@prefix : <http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10> .
+
+<http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#Person
+rdfs:Person rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#adjacentTo
+:adjacentTo rdf:type owl:ObjectProperty ,
+                     owl:SymmetricProperty ;
+            rdfs:domain :Store ;
+            rdfs:range :Store .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#containsStore
+:containsStore rdf:type owl:ObjectProperty ;
+               owl:inverseOf :isLocatedIn .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#hasSome
+:hasSome rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#isIn
+:isIn rdf:type owl:ObjectProperty ;
+      rdfs:domain :Product ;
+      rdfs:range :Store .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#isLocatedIn
+:isLocatedIn rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :Store ;
+             rdfs:range :Zone .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#isPartOf
+:isPartOf rdf:type owl:ObjectProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Elevator ,
+                      :Entrace ,
+                      :Stair ,
+                      :Store ,
+                      :Toilet ,
+                      :Zone ;
+          rdfs:range :Floor .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#isProcessedBy
+:isProcessedBy rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#itemOf
+:itemOf rdf:type owl:ObjectProperty ,
+                 owl:FunctionalProperty ;
+        rdfs:domain :Order_Item ;
+        rdfs:range :Order .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#moveTo
+:moveTo rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :isPartOf ;
+        rdfs:domain :Elevator ,
+                    :Stair ;
+        rdfs:range :Floor .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#refersToProduct
+:refersToProduct rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#requestBy
+:requestBy rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :Order ;
+           rdfs:range :User .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#stockOf
+:stockOf rdf:type owl:ObjectProperty ;
+         rdfs:domain :Stock_Item ;
+         rdfs:range :Product .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#stockOn
+:stockOn rdf:type owl:ObjectProperty ;
+         rdfs:domain :Stock_Item ;
+         rdfs:range :Store .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#emailUser
+:emailUser rdf:type owl:DatatypeProperty ;
+           rdfs:domain :User ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#hasQuantityOf
+:hasQuantityOf rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#nameProduct
+:nameProduct rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Product ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#nameStore
+:nameStore rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Store ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#nameUser
+:nameUser rdf:type owl:DatatypeProperty ;
+          rdfs:domain :User ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#numberFloor
+:numberFloor rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :Floor ;
+             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#passwordUser
+:passwordUser rdf:type owl:DatatypeProperty ;
+              rdfs:domain :User ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#priceProduct
+:priceProduct rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Product ;
+              rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#quantityOrder
+:quantityOrder rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Order_Item ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#quantityStock
+:quantityStock rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Stock_Item ;
+               rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#siteStore
+:siteStore rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Store ;
+           rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://dbpedia.org/ontology/Place
+<http://dbpedia.org/ontology/Place> rdf:type owl:Class .
+
+
+###  http://dbpedia.org/ontology/Product
+<http://dbpedia.org/ontology/Product> rdf:type owl:Class ;
+                                      owl:equivalentClass :Product .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Clothes
+:Clothes rdf:type owl:Class ;
+         rdfs:subClassOf :Product ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isIn ;
+                           owl:allValuesFrom :Clothes_Store
+                         ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Clothes_Store
+:Clothes_Store rdf:type owl:Class ;
+               rdfs:subClassOf :Store ,
+                               [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                        owl:complementOf :Eletronics_Store
+                                                      ]
+                                                      [ rdf:type owl:Class ;
+                                                        owl:complementOf :Food_Store
+                                                      ]
+                                                      [ rdf:type owl:Class ;
+                                                        owl:complementOf :Toy_Store
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isLocatedIn ;
+                                 owl:allValuesFrom :Clothes_Zone
+                               ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Clothes_Zone
+:Clothes_Zone rdf:type owl:Class ;
+              rdfs:subClassOf :Zone ,
+                              [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                       owl:complementOf :Eletronics_Zone
+                                                     ]
+                                                     [ rdf:type owl:Class ;
+                                                       owl:complementOf :Food_Zone
+                                                     ]
+                                                     [ rdf:type owl:Class ;
+                                                       owl:complementOf :Toy_Zone
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Eletronics
+:Eletronics rdf:type owl:Class ;
+            rdfs:subClassOf :Product ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :isIn ;
+                              owl:allValuesFrom :Eletronics_Store
+                            ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Eletronics_Store
+:Eletronics_Store rdf:type owl:Class ;
+                  rdfs:subClassOf :Store ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                           owl:complementOf :Clothes_Store
+                                                         ]
+                                                         [ rdf:type owl:Class ;
+                                                           owl:complementOf :Food_Store
+                                                         ]
+                                                         [ rdf:type owl:Class ;
+                                                           owl:complementOf :Toy_Store
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isLocatedIn ;
+                                    owl:allValuesFrom :Eletronics_Zone
+                                  ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Eletronics_Zone
+:Eletronics_Zone rdf:type owl:Class ;
+                 rdfs:subClassOf :Zone ,
+                                 [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                          owl:complementOf :Clothes_Zone
+                                                        ]
+                                                        [ rdf:type owl:Class ;
+                                                          owl:complementOf :Food_Zone
+                                                        ]
+                                                        [ rdf:type owl:Class ;
+                                                          owl:complementOf :Toy_Zone
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Elevator
+:Elevator rdf:type owl:Class ;
+          rdfs:subClassOf <http://dbpedia.org/ontology/Place> ;
+          rdfs:comment "Move o usuário de um andar (Floor) para o outro." .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Entrace
+:Entrace rdf:type owl:Class ;
+         rdfs:subClassOf <http://dbpedia.org/ontology/Place> .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Floor
+:Floor rdf:type owl:Class ;
+       rdfs:subClassOf <http://dbpedia.org/ontology/Place> .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Food
+:Food rdf:type owl:Class ;
+      rdfs:subClassOf :Product ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :isIn ;
+                        owl:allValuesFrom :Food_Store
+                      ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Food_Store
+:Food_Store rdf:type owl:Class ;
+            rdfs:subClassOf :Store ,
+                            [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                     owl:complementOf :Clothes_Store
+                                                   ]
+                                                   [ rdf:type owl:Class ;
+                                                     owl:complementOf :Eletronics_Store
+                                                   ]
+                                                   [ rdf:type owl:Class ;
+                                                     owl:complementOf :Toy_Store
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :isLocatedIn ;
+                              owl:allValuesFrom :Food_Zone
+                            ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Food_Zone
+:Food_Zone rdf:type owl:Class ;
+           rdfs:subClassOf :Zone ,
+                           [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                    owl:complementOf :Clothes_Zone
+                                                  ]
+                                                  [ rdf:type owl:Class ;
+                                                    owl:complementOf :Eletronics_Zone
+                                                  ]
+                                                  [ rdf:type owl:Class ;
+                                                    owl:complementOf :Toy_Zone
+                                                  ]
+                                                ) ;
+                             rdf:type owl:Class
+                           ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Home_Appliance
+:Home_Appliance rdf:type owl:Class ;
+                rdfs:subClassOf :Product .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Locomotion
+:Locomotion rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( :Elevator
+                                                :Stair
+                                              )
+                                ] ;
+            rdfs:subClassOf <http://dbpedia.org/ontology/Place> .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Order
+:Order rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasSome ;
+                         owl:someValuesFrom :Order_Item
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :isProcessedBy ;
+                         owl:someValuesFrom :Store
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :requestBy ;
+                         owl:someValuesFrom :User
+                       ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Order_Item
+:Order_Item rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :itemOf ;
+                              owl:someValuesFrom :Order
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :refersToProduct ;
+                              owl:someValuesFrom :Product
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasQuantityOf ;
+                              owl:someValuesFrom xsd:integer
+                            ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Product
+:Product rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :stockOn ;
+                           owl:someValuesFrom :Store
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :priceProduct ;
+                           owl:someValuesFrom xsd:decimal
+                         ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Stair
+:Stair rdf:type owl:Class ;
+       rdfs:subClassOf <http://dbpedia.org/ontology/Place> ;
+       rdfs:comment "Move o usuário de um andar (Floor) para o outro." .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Stock_Item
+:Stock_Item rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :quantityStock ;
+                              owl:someValuesFrom xsd:integer
+                            ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Store
+:Store rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :siteStore ;
+                         owl:someValuesFrom xsd:string
+                       ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Toilet
+:Toilet rdf:type owl:Class ;
+        rdfs:subClassOf <http://dbpedia.org/ontology/Place> .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Toy
+:Toy rdf:type owl:Class ;
+     rdfs:subClassOf :Product ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :isIn ;
+                       owl:allValuesFrom :Toy_Store
+                     ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Toy_Store
+:Toy_Store rdf:type owl:Class ;
+           rdfs:subClassOf :Store ,
+                           [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                    owl:complementOf :Clothes_Store
+                                                  ]
+                                                  [ rdf:type owl:Class ;
+                                                    owl:complementOf :Eletronics_Store
+                                                  ]
+                                                  [ rdf:type owl:Class ;
+                                                    owl:complementOf :Food_Store
+                                                  ]
+                                                ) ;
+                             rdf:type owl:Class
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :isLocatedIn ;
+                             owl:allValuesFrom :Toy_Zone
+                           ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Toy_Zone
+:Toy_Zone rdf:type owl:Class ;
+          rdfs:subClassOf :Zone ,
+                          [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                   owl:complementOf :Clothes_Zone
+                                                 ]
+                                                 [ rdf:type owl:Class ;
+                                                   owl:complementOf :Eletronics_Zone
+                                                 ]
+                                                 [ rdf:type owl:Class ;
+                                                   owl:complementOf :Food_Zone
+                                                 ]
+                                               ) ;
+                            rdf:type owl:Class
+                          ] .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#User
+:User rdf:type owl:Class ;
+      rdfs:subClassOf rdfs:Person ,
+                      <http://xmlns.com/foaf/0.1/Person> ;
+      rdfs:Person :User .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#WebPage
+:WebPage rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Zone
+:Zone rdf:type owl:Class ;
+      rdfs:subClassOf <http://dbpedia.org/ontology/Place> .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Person
+rdfs:Person rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#AKirchner
+:AKirchner rdf:type owl:NamedIndividual ,
+                    :User ;
+           :emailUser "akirchner@hotmail.com"^^xsd:string ;
+           :nameUser "Anderson Kirchner"^^xsd:string ;
+           :passwordUser "admin"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#AirFryer
+:AirFryer rdf:type owl:NamedIndividual ,
+                   :Home_Appliance ;
+          :nameProduct "Air Fryer"^^xsd:string ;
+          :priceProduct "229.99"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#BigMac
+:BigMac rdf:type owl:NamedIndividual ,
+                 :Food ;
+        :isIn :McDonalds ;
+        :nameProduct "Bic Mac"^^xsd:string ;
+        :priceProduct "16.9"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#ECanashiro
+:ECanashiro rdf:type owl:NamedIndividual ,
+                     :User ;
+            :emailUser "e_canashiro@yahoo.com"^^xsd:string ;
+            :nameUser "Erika Canashiro"^^xsd:string ;
+            :passwordUser "123456"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Floor1
+:Floor1 rdf:type owl:NamedIndividual ,
+                 :Floor ;
+        :numberFloor 1 .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Floor2
+:Floor2 rdf:type owl:NamedIndividual ,
+                 :Floor ;
+        :numberFloor 2 .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Hering
+:Hering rdf:type owl:NamedIndividual ,
+                 :Clothes_Store ;
+        :nameStore "Hering"^^xsd:string ;
+        :siteStore "https://www.hering.com.br"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#JBerez
+:JBerez rdf:type owl:NamedIndividual ,
+                 :User ;
+        :emailUser "berez@ig.com.br"^^xsd:string ;
+        :nameUser "Jósé dé Jésús Béréz Álcázár"^^xsd:string ;
+        :passwordUser "óéééúééááá"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Kalunga
+:Kalunga rdf:type owl:NamedIndividual ,
+                  :Eletronics_Store ;
+         :nameStore "Kalunga"^^xsd:string ;
+         :siteStore "https://www.kalunga.com.br"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Lasagna
+:Lasagna rdf:type owl:NamedIndividual ,
+                  :Food ;
+         :isIn :Spoleto ;
+         :nameProduct "Lasanha"^^xsd:string ;
+         :priceProduct "25.5"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Lego_Box
+:Lego_Box rdf:type owl:NamedIndividual ,
+                   :Toy ;
+          :nameProduct "Lego Box"^^xsd:string ;
+          :priceProduct "968795.99"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#McDonalds
+:McDonalds rdf:type owl:NamedIndividual ,
+                    :Food_Store ;
+           :nameStore "McDonald's"^^xsd:string ;
+           :siteStore "https://www.mcdonalds.com.br"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Noodles
+:Noodles rdf:type owl:NamedIndividual ,
+                  :Food ;
+         :isIn :Spoleto ;
+         :nameProduct "Talharim"^^xsd:string ;
+         :priceProduct "19.9"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#PBKids
+:PBKids rdf:type owl:NamedIndividual ,
+                 :Toy_Store ;
+        :nameStore "PBKids"^^xsd:string ;
+        :siteStore "https://www.pbkids.com.br"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Pants
+:Pants rdf:type owl:NamedIndividual ,
+                :Clothes ;
+       :nameProduct "Calça"^^xsd:string ;
+       :priceProduct "45.5"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Playstation4
+:Playstation4 rdf:type owl:NamedIndividual ,
+                       :Eletronics ;
+              :nameProduct "PlayStation 4"^^xsd:string ;
+              :priceProduct "2799.99"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Puzzle
+:Puzzle rdf:type owl:NamedIndividual ,
+                 :Toy ;
+        :nameProduct "Puzzle"^^xsd:string ;
+        :priceProduct "62.45"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Ri_Happy
+:Ri_Happy rdf:type owl:NamedIndividual ,
+                   :Toy_Store ;
+          :nameStore "Ricardo Feliz"^^xsd:string ;
+          :siteStore "https://www.rihappy.com.br"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Richard_Eletro
+:Richard_Eletro rdf:type owl:NamedIndividual ,
+                         :Eletronics_Store .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Shirt
+:Shirt rdf:type owl:NamedIndividual ,
+                :Clothes ;
+       :nameProduct "Camisa"^^xsd:string ;
+       :priceProduct "60.0"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Spoleto
+:Spoleto rdf:type owl:NamedIndividual ,
+                  :Food_Store ;
+         :nameStore "Spoleto"^^xsd:string ;
+         :siteStore "https://www.spoleto.com.br"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#TekPix
+:TekPix rdf:type owl:NamedIndividual ,
+                 :Eletronics ;
+        :nameProduct "TekPix iDV-12"^^xsd:string ;
+        :priceProduct "1298.8"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#Underwear
+:Underwear rdf:type owl:NamedIndividual ,
+                    :Clothes ;
+           :nameProduct "Cueca"^^xsd:string ;
+           :priceProduct "15.2"^^xsd:double .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#UnderwearHouse
+:UnderwearHouse rdf:type owl:NamedIndividual ,
+                         :Clothes_Store ;
+                :nameStore "Casa da Cueca"^^xsd:string ;
+                :siteStore "https://www.casadacueca.com.br"^^xsd:string .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#order001
+:order001 rdf:type owl:NamedIndividual ,
+                   :Order ;
+          :isProcessedBy :Richard_Eletro ;
+          :requestBy :ECanashiro .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#order001item001
+:order001item001 rdf:type owl:NamedIndividual ,
+                          :Order_Item ;
+                 :itemOf :order001 ;
+                 :refersToProduct :Playstation4 ;
+                 :priceProduct 1725.90 ;
+                 :quantityOrder "1"^^xsd:positiveInteger .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#stockPlaystation4
+:stockPlaystation4 rdf:type owl:NamedIndividual ,
+                            :Stock_Item ;
+                   :quantityStock 8 .
+
+
+###  http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#stockPuzzle
+:stockPuzzle rdf:type owl:NamedIndividual ,
+                      :Stock_Item ;
+             :quantityStock 37 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Elevator
+                :Entrace
+                :Floor
+                :Locomotion
+                :Order
+                :Order_Item
+                :Stair
+                :Store
+                :Toilet
+                :Zone
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,4 @@
+@prefix : <http://tutorialacademy.com/2015/jena#> .
+[ruleHasProduct: (?o :hasItem ?p) (?s :sells ?p) -> (?s :hasProduct ?p)]
+#@prefix : <http://www.semanticweb.org/anderson/ontologies/2019/9/untitled-ontology-10#> .
+#[ruleHasStudent: (?s :hasClass ?c) (?p :teaches ?c) -> (?p :hasStudent ?s)]
